@@ -1,6 +1,6 @@
 package management;
 
-public class Employee {
+public class Employe {
     public String name;//prénom
     public String surname;//nom
     public int salary;//salaire

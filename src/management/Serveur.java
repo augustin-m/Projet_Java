@@ -1,8 +1,8 @@
 package management;
 import java.util.Vector;
-public class Waiter extends Employee {
+public class Serveur extends Employe {
     private Vector table = new Vector();
-    public Waiter(String name, String surname, int salary){
+    public Serveur(String name, String surname, int salary){
         this.name = name;
         this.surname = surname;
         this.salary = salary;
