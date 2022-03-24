@@ -16,4 +16,5 @@ public class App {
         Affichage Display1 = new Affichage();
         Display1.print(choixEcran);
     }
+
 }
