@@ -3,6 +3,9 @@
 import Display.barmanXcuisinier;
 import Display.manager;
 import Display.serveur;
+import management.Serveur;
+
+import java.util.Scanner;
 
 public class Affichage {
     public static void print(int n){

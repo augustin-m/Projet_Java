@@ -1,5 +1,4 @@
 package Display;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -16,6 +15,7 @@ public class serveur {
     public static List<String> commandePlats = new ArrayList<String>();
     public static List<String> commandeBoissons = new ArrayList<String>();
 
+
     public static void printMenu(){
         for (int i = 0; i < menu.size();i++){
             System.out.println(i + " : " + menu.get(i));
@@ -24,10 +24,17 @@ public class serveur {
     }
     public static void scanCommande(){
         Scanner scan = new Scanner(System.in);
-        while(scan.nextInt() != 16) {
-            System.out.println(menu.get(scan.nextInt()));
-            if(scan.nextInt() <= 4) commandeBoissons.add(menu.get(scan.nextInt()));
-            else commandePlats.add(menu.get(scan.nextInt()));
+        int verif = scan.nextInt();
+        if(verif < 16) {
+            System.out.println(menu.get(verif));
+            if(verif <= 4) commandeBoissons.add(menu.get(verif));
+            else commandePlats.add(menu.get(verif));
+            scanCommande();
+        }
+        if(verif == 16){
+            System.out.println("Commande envoyée");
+            //TEST : System.out.println("Boissons" + " : " + commandeBoissons);
+            //TEST : System.out.println("Plats" + " : " + commandePlats);
         }
     }
 
