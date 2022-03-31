@@ -1,6 +1,7 @@
 //package myjavaproject;
 
 import Display.barmanXcuisinier;
+import Display.manager;
 import Display.serveur;
 
 public class Affichage {
@@ -15,7 +16,8 @@ public class Affichage {
             disp1.print();
         }
         else if(n == 3){
-            System.out.println("Ecran Monitoring");
+            manager disp2 = new manager();
+            disp2.print();
         }
         else{
             System.out.println("Nombre saisi incorrect");
