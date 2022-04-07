@@ -14,6 +14,8 @@ public class serveur {
     ));
     public static List<String> commandePlats = new ArrayList<String>();
     public static List<String> commandeBoissons = new ArrayList<String>();
+    public static List<String> platsFaits = new ArrayList<String>();
+    public static List<String> boissonsFaites = new ArrayList<String>();
 
 
     public static void printMenu(){
@@ -36,6 +38,7 @@ public class serveur {
             //TEST : System.out.println("Boissons" + " : " + commandeBoissons);
             //TEST : System.out.println("Plats" + " : " + commandePlats);
         }
+
     }
 
 }
