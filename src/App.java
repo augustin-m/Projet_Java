@@ -1,10 +1,15 @@
 import management.Serveur;
+import management.Stocks;
+
+import java.io.IOException;
 import java.util.*;
 
 
 
 public class App {
-    public static void main(String[] args){
+    public static void main(String[] args) throws IOException {
+        Stocks test = new Stocks();
+        //test.setStocks();
         menu();
     }
     public static void menu(){
@@ -18,6 +23,7 @@ public class App {
         Affichage Display1 = new Affichage();
         Display1.print(choixEcran);
         menu();
+
     }
 }
 
