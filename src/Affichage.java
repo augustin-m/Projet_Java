@@ -5,10 +5,12 @@ import Display.manager;
 import Display.serveur;
 import management.Serveur;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Affichage {
-    public static void print(int n){
+    public static void print(int n) throws IOException {
         if(n == 1){
             serveur disp = new serveur();
             serveur.printMenu();

@@ -2,6 +2,9 @@ import management.Serveur;
 import management.Stocks;
 
 import java.io.IOException;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.*;
 
 
@@ -12,7 +15,7 @@ public class App {
         //test.setStocks();
         menu();
     }
-    public static void menu(){
+    public static void menu() throws IOException {
         System.out.println("Quel écran souhaitez vous afficher?");
         System.out.println("1- Ecran prise de commande");
         System.out.println("2- Ecran cuisine ou de bar");
@@ -23,7 +26,6 @@ public class App {
         Affichage Display1 = new Affichage();
         Display1.print(choixEcran);
         menu();
-
     }
 }
 

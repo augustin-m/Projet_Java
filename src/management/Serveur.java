@@ -2,15 +2,15 @@ package management;
 import java.util.Vector;
 public class Serveur extends Employe {
     private Vector table = new Vector();
-    public Serveur(String name, String surname, int salary){
-        this.name = name;
-        this.surname = surname;
-        this.salary = salary;
+    public Serveur(String prenom, String nom, int salaire) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.salaire = salaire;
     }
-    public void addTable(int tableNumber){
-        table.add(tableNumber);
+    public void ajoutTable(int numDeTable){
+        table.add(numDeTable);
     }
-    public void removeTable(int tableNumber){
-        table.removeElement(tableNumber);
+    public void supprTable(int numDeTable){
+        table.removeElement(numDeTable);
     }
 }

@@ -1,9 +1,9 @@
 package management;
 
 public class Cuisinier extends Employe {
-    public Cuisinier(String name, String surname, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.salary = salary;
+    public Cuisinier(String prenom, String nom, int salaire) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.salaire = salaire;
     }
 }

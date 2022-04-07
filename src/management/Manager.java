@@ -1,9 +1,9 @@
 package management;
 
 public class Manager extends Employe {
-    public Manager(String name, String surname, int salary) {
-        this.name = name;
-        this.surname = surname;
-        this.salary = salary;
+    public Manager(String prenom, String nom, int salaire) {
+        this.prenom = prenom;
+        this.nom = nom;
+        this.salaire = salaire;
     }
 }
