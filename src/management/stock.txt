@@ -1,0 +1,26 @@
+Limonade 
+50
+Cidre Doux 
+50
+Bière sans alcool
+50
+Jus de fruit 
+50
+Salade
+30
+Tomate
+30
+Oignon
+30
+Champignon
+30
+Pain à Burger
+30
+Steack
+30
+Pâte à Pizza
+30
+Fromage
+30
+Chorizo
+30

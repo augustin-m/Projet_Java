@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class serveur {
     public static List<String> menu = new ArrayList<>(Arrays.asList(
-            "Limonade", "Cidre doux", "Bière sans alcool", "Jus de fruit", "verre d'eau",
+            "Limonade", "Cidre doux", "Bière sans alcool", "Jus de fruit", "Verre d'eau",
             "Salade", "Salade avec tomates",
             "Potage aux oignons", "Potage à la tomate", "Potage aux champignons",
             "Burger avec salade et tomates", "Burger avec salade", "Burger",

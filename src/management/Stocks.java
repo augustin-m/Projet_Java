@@ -12,11 +12,27 @@ public class Stocks {
     private Map<String, Integer> stocks = new HashMap<>() ;
 
     public void setStocks(String conso) {
-        if(conso == "Salade"){
+        switch (conso){
+            case "Limonade":
 
-        }
-        else if(conso == "Salade avec "){
+            case "Cidre doux":
 
+            case "Bière sans alcool":
+
+            case "Jus de fruit":
+
+            case "Verre d'eau":
+
+            case "Salade":
+
+            case "Salade avec tomates":
+                stocks.replace("Salade", stocks.get("Salade")-1);
+
+            case "Potage aux oignons":
+
+
+            default:
+                break;
         }
     }
 
@@ -24,7 +40,8 @@ public class Stocks {
     public void lireStock() throws IOException
     {
 
-        File file = new File("C:/Users/Administrateur/IdeaProjects/TP2_Java/src/management/stock.txt");
+        File directory = new File("");
+        File file = new File(directory.getAbsolutePath()+"\\src\\management\\stock.txt");
         Vector v1 = new Vector();
         Vector v2 = new Vector();
         int a = 0;

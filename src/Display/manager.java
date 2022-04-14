@@ -8,7 +8,8 @@ import java.util.Locale;
 import java.util.Scanner;
 
 public class manager {
-    File file = new File("D:\\lione\\Documents\\projet_java\\src\\employes.txt");
+    File directory = new File("");
+    File file = new File(directory.getAbsolutePath()+"\\src\\management\\employes.txt");
     BufferedReader br = new BufferedReader(new FileReader(file));
     public int page;
     private Vector<Employe> employes = new Vector<Employe>();
