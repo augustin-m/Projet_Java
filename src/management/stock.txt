@@ -1,26 +1,34 @@
-Limonade 
+Riz
+48
+Limonade
 50
-Cidre Doux 
-50
-Bière sans alcool
-50
+Champignon
+29
+Pâte à Fajitas
+28
+Tomate
+25
+Oignon
+30
 Jus de fruit 
 50
 Salade
-30
-Tomate
-30
-Oignon
-30
-Champignon
-30
-Pain à Burger
-30
+28
 Steack
-30
+28
+Poulet
+19
 Pâte à Pizza
-30
-Fromage
-30
+27
+Bière sans alcool
+50
+Cidre Doux 
+50
 Chorizo
-30
+29
+Fromage
+25
+Pain à Burger
+28
+Boeuf
+19
