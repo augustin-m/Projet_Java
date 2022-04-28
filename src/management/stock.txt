@@ -10,10 +10,10 @@ Tomate
 25
 Oignon
 30
-Jus de fruit 
+Jus de fruit
 50
 Salade
-28
+10
 Steack
 28
 Poulet
@@ -21,14 +21,14 @@ Poulet
 Pâte à Pizza
 27
 Bière sans alcool
-50
-Cidre Doux 
+0
+Cidre Doux
 50
 Chorizo
-29
+0
 Fromage
 25
 Pain à Burger
-28
+10
 Boeuf
 19

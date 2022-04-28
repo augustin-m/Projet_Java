@@ -1,23 +1,21 @@
 package Display;
 
-import management.Stocks;
-
-import java.io.IOException;
 import java.util.Scanner;
 
 public class barmanXcuisinier {
     public serveur attender;
     public int statut;
-    public void print() throws IOException {
+    public void print(){
         System.out.println("Etes vous barman ou cuisinier ?");
         System.out.println("1- Barman");
         System.out.println("2- Cuisinier");
         Scanner scanner = new Scanner(System.in);
-        statut = scanner.nextInt();
+        int choixEcran = scanner.nextInt();
+        statut = choixEcran;
         gestionFile();
     }
 
-    public void gestionFile() throws IOException {
+    public void gestionFile(){
         if(statut == 1){
             System.out.println("=========================================");
             System.out.println("            Ecran du Barman :            ");
@@ -58,8 +56,6 @@ public class barmanXcuisinier {
             int sup = scan.nextInt();
             if (sup < attender.commandePlats.size()) {
                 attender.platsFaits.add(attender.commandePlats.get(sup));
-                Stocks reserves = new Stocks();
-                reserves.setStocks(attender.commandePlats.get(sup));
                 attender.commandePlats.remove(sup);
                 gestionFile();
             }

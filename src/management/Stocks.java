@@ -15,7 +15,7 @@ public class Stocks {
             case "Limonade":
                 stocks.put("Limonade", stocks.get("Limonade")-1);
             case "Cidre doux":
-                stocks.put("Cidre doux", stocks.get("Cidre doux")-1);
+                stocks.put("Cidre Doux", stocks.get("Cidre Doux")-1);
             case "Bière sans alcool":
                 stocks.put("Bière sans alcool", stocks.get("Bière sans alcool")-1);
                 break;
@@ -103,15 +103,33 @@ public class Stocks {
         printWriter.close();
     }
 
+    public void ajouterStock(String ingredient, Integer quantite) throws IOException {
+        lireStock();
+        stocks.put(ingredient,  stocks.get(ingredient)+quantite);
+        FileWriter fileWriter = new FileWriter(file);
+        PrintWriter printWriter = new PrintWriter(fileWriter);
+        int  compterEntree = 0;
+        for (Map.Entry mapentry : stocks.entrySet()) {
+            compterEntree++;
+            printWriter.print(mapentry.getKey());
+            printWriter.println();
+            printWriter.print(mapentry.getValue());
+            if(compterEntree<stocks.size()){
+                printWriter.println();
+            }
+        }
+        printWriter.close();
+    }
 
-
-    public void lireStock() throws IOException
+    public int lireUnStock(String nomIngredient) throws IOException {
+        lireStock();
+        return stocks.get(nomIngredient);
+    }
+    public Vector<Vector> lireStock() throws IOException
     {
-
-        File directory = new File("");
-        File file = new File(directory.getAbsolutePath()+"\\src\\management\\stock.txt");
         Vector<String> v1 = new Vector();
         Vector<Integer> v2 = new Vector();
+        Vector<Vector> v3 = new Vector();
         int a = 0;
         FileReader fr = new FileReader(file);
 
@@ -129,6 +147,10 @@ public class Stocks {
         for (int i = 0; i < v1.size(); i++){
           stocks.put(v1.get(i), v2.get(i));
         }
+        v3.add(v1);
+        v3.add(v2);
+
+        return v3;
         //for (Map.Entry mapentry : stocks.entrySet()) {
           //  System.out.println("ingrédient: "+mapentry.getKey()
             //        + " | quantité: " + mapentry.getValue());
