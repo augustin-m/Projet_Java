@@ -7,7 +7,7 @@ Champignon
 Pâte à Fajitas
 28
 Tomate
-25
+24
 Oignon
 30
 Jus de fruit
@@ -19,15 +19,15 @@ Steack
 Poulet
 19
 Pâte à Pizza
-27
+26
 Bière sans alcool
+0
+Chorizo
 0
 Cidre Doux
 50
-Chorizo
-0
 Fromage
-25
+24
 Pain à Burger
 10
 Boeuf

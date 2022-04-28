@@ -2,10 +2,7 @@ package Display;
 import management.Stocks;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class serveur {
     public static List<String> menu = new ArrayList<>(Arrays.asList(
@@ -19,7 +16,7 @@ public class serveur {
     public static List<String> commandeBoissons = new ArrayList<>();
     public static List<String> platsFaits = new ArrayList<>();
     public static List<String> boissonsFaites = new ArrayList<>();
-
+    public static Map<Integer, Vector<String>> enregistrementTables  = new HashMap<>();
     public static void verifierRupture(String nomDuPlat) throws IOException {
         Stocks stocksActuel = new Stocks();
         switch (nomDuPlat){
@@ -121,19 +118,36 @@ public class serveur {
             System.out.println(i + " : " + menu.get(i));
 
         }
+        System.out.println("16 : FIN DE COMMANDE");
+        System.out.println("Veuillez saisir le numéro de la table à enregistrer :");
+        Scanner scan = new Scanner(System.in);
+        int check = scan.nextInt();
+        if(check <= 20 && check > 0){
+            scanCommande(check);
+        }
         System.out.println(menu.size() + " : FIN DE COMMANDE");
     }
-    public static void scanCommande(){
+    public static void scanCommande(int numTable){
+        System.out.println("Veuillez saisir le numéro du plat ou de la boisson commandé :");
         Scanner scan = new Scanner(System.in);
         int verif = scan.nextInt();
+        Vector<String>commandeTable = new Vector();
         if(verif < menu.size()) {
             System.out.println(menu.get(verif));
             if(verif <= 4) commandeBoissons.add(menu.get(verif));
             else commandePlats.add(menu.get(verif));
-            scanCommande();
+            if(enregistrementTables.get(numTable) != null){
+                commandeTable = enregistrementTables.get(numTable);
+            }
+            commandeTable.add(menu.get(verif));
+            enregistrementTables.put(numTable, commandeTable);
+            scanCommande(numTable);
         }
         if(verif >= menu.size()){
-            System.out.println("Commande envoyée");
+            System.out.println("Commande de la table " + numTable + " envoyée");
+            for (int i = 0; i < enregistrementTables.get(numTable).size(); i++){
+                System.out.println(enregistrementTables.get(numTable).get(i));
+            }
         }
 
     }
