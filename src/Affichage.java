@@ -14,7 +14,6 @@ public class Affichage {
         if(n == 1){
             serveur disp = new serveur();
             serveur.printMenu();
-            serveur.scanCommande();
         }
         else if(n == 2){
             barmanXcuisinier disp1 = new barmanXcuisinier();

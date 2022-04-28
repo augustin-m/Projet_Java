@@ -17,7 +17,14 @@ public class barmanXcuisinier {
 
     public void gestionFile(){
         if(statut == 1){
-            System.out.println("Ecran du Barman :");
+            System.out.println("=========================================");
+            System.out.println("            Ecran du Barman :            ");
+            System.out.println("=========================================");
+            System.out.println("Boissons déjà préparées :");
+            for (int i = 0; i < attender.boissonsFaites.size();i++){
+                System.out.println(i + " : " + attender.boissonsFaites.get(i));
+            }
+            System.out.println("Boissons à préparer :");
             for (int i = 0; i < attender.commandeBoissons.size();i++){
                 System.out.println(i + " : " + attender.commandeBoissons.get(i));
             }
@@ -33,7 +40,14 @@ public class barmanXcuisinier {
             else gestionFile();
         }
         else if(statut == 2){
-            System.out.println("Ecran du Cuisinier :");
+            System.out.println("===========================================");
+            System.out.println("            Ecran du Cuisinier :           ");
+            System.out.println("===========================================");
+            System.out.println("Plats déjà préparés :");
+            for (int i = 0; i < attender.platsFaits.size();i++){
+                System.out.println(i + " : " + attender.platsFaits.get(i));
+            }
+            System.out.println("Plats à préparer :");
             for (int i = 0; i < attender.commandePlats.size();i++){
                 System.out.println(i + " : " + attender.commandePlats.get(i));
             }
