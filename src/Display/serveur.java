@@ -118,7 +118,7 @@ public class serveur {
             System.out.println(i + " : " + menu.get(i));
 
         }
-        System.out.println("16 : FIN DE COMMANDE");
+        System.out.println(menu.size() + " : FIN DE COMMANDE");
         System.out.println("Veuillez saisir le numéro de la table à enregistrer :");
         Scanner scan = new Scanner(System.in);
         int check = scan.nextInt();
