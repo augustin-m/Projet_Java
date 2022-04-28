@@ -120,6 +120,45 @@ public class manager {
         return stringSepare;
     }
 
+    private void imprimmerCourses() throws IOException {
+        Vector <String> nomProduits = new Vector();
+        Vector <Integer> nombreRequis =  new Vector();
+        Stocks stockActuel = new Stocks();
+        Vector<Vector> stock = stockActuel.lireStock();
+        for(int i = 0; i < stock.get(1).size(); i++){
+            if( (Integer)stock.get(1).get(i) <= 20){
+                nomProduits.add((String)stock.get(0).get(i));
+                nombreRequis.add(50-(Integer)stock.get(1).get(i));
+            }
+        }
+        if(nombreRequis.size() == 0) {
+            System.out.println("Il n'y a pas besoin de faire les courses pour l'instant");
+        }else {
+            System.out.println("Voici votre liste de course :");
+        }
+        for (int i =0; i<nombreRequis.size(); i++){
+            System.out.println(nomProduits.get(i) + " " + nombreRequis.get(i));
+        }
+    }
+
+    public void remplirLesStocks() throws IOException {
+        System.out.println("Qu'avez vous acheté ?");
+        Stocks stockActuel = new Stocks();
+        Vector<Vector> stock = stockActuel.lireStock();
+        for(int i = 0; i< stock.get(1).size();i++){
+            System.out.println(i + " " + stock.get(0).get(i));
+        }
+        System.out.println("Pour quitter, tapez " + stock.get(0).size());
+        Scanner scanner = new Scanner(System.in);
+        int id = scanner.nextInt();
+        if (id >= 0 && id < stock.get(0).size()){
+            System.out.println("Quelle quantité ?");
+            int quantite = scanner.nextInt();
+            stockActuel.ajouterStock((String)stock.get(0).get(id),quantite);
+            remplirLesStocks();
+        }
+    }
+
     public void print() throws IOException {
         String ligneFichier;
         while((ligneFichier = br.readLine()) != null){
@@ -148,11 +187,12 @@ public class manager {
         }
         System.out.println("Que désirez vous faire ?");
         System.out.println("1- Composer une équipe");
-        System.out.println("2- Faire les stocks");
-        System.out.println("3- Performances du service");
-        System.out.println("4- Ajouter un employé");
-        System.out.println("5- Supprimer un employé");
-        System.out.println("6- Quitter le menu");
+        System.out.println("2- Imprimmer le ticket de course");
+        System.out.println("3- Remplir les stocks");
+        System.out.println("4- Performances du service");
+        System.out.println("5- Ajouter un employé");
+        System.out.println("6- Supprimer un employé");
+        System.out.println("7- Quitter le menu");
         Scanner scanner = new Scanner(System.in);
         int choixEcran = Integer.parseInt(scanner.next());
         this.page = choixEcran;
@@ -162,20 +202,26 @@ public class manager {
                 print();
                 break;
             case 2:
-                System.out.println("Faire les stocks");
+                imprimmerCourses();
+                print();
                 break;
             case 3:
-                System.out.println("Performances du service");
+                remplirLesStocks();
+                print();
                 break;
             case 4:
-                ajoutEmploye();
+                System.out.println("Performances du service");
                 print();
                 break;
             case 5:
-                supprimeEmploye();
+                ajoutEmploye();
                 print();
                 break;
             case 6:
+                supprimeEmploye();
+                print();
+                break;
+            case 7:
                 break;
             default:
                 print();
