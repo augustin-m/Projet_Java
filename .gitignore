@@ -1,2 +1,4 @@
 # Project exclude paths
 /out/
+/.idea/discord.xml
+/.idea/vcs.xml

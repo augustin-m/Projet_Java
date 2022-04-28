@@ -1,7 +1,7 @@
 package management;
 import java.util.Vector;
 public class Serveur extends Employe {
-    private Vector table = new Vector();
+    private final Vector table = new Vector();
     public Serveur(String prenom, String nom, int salaire) {
         this.prenom = prenom;
         this.nom = nom;
