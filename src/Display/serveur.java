@@ -1,5 +1,6 @@
 package Display;
 import management.Stocks;
+import management.TicketDeCaisse;
 
 import java.io.IOException;
 import java.util.*;
@@ -127,7 +128,7 @@ public class serveur {
         }
         System.out.println(menu.size() + " : FIN DE COMMANDE");
     }
-    public static void scanCommande(int numTable){
+    public static void scanCommande(int numTable) throws IOException {
         System.out.println("Veuillez saisir le numéro du plat ou de la boisson commandé :");
         Scanner scan = new Scanner(System.in);
         int verif = scan.nextInt();
@@ -149,7 +150,8 @@ public class serveur {
                 System.out.println(enregistrementTables.get(numTable).get(i));
             }
         }
-
+        TicketDeCaisse commande = new TicketDeCaisse();
+        commande.sauvgarderTicket(numTable, commandeTable);
     }
 
 }

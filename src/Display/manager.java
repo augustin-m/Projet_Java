@@ -3,6 +3,7 @@ package Display;
 import management.*;
 
 import java.io.*;
+import java.util.Map;
 import java.util.Vector;
 import java.util.Locale;
 import java.util.Scanner;
@@ -159,6 +160,21 @@ public class manager {
         }
     }
 
+    public void performances() throws IOException {
+        File performances = new File(directory.getAbsolutePath()+"\\src\\stockage\\performance.txt");
+        FileReader fr = new FileReader(performances);
+        BufferedReader brPerf = new BufferedReader(fr);
+        System.out.println("Les performances du services sont de " + brPerf.readLine() + " €");
+        fr.close();
+    }
+
+    public void reinitialiserPerf() throws IOException {
+        File performances = new File(directory.getAbsolutePath()+"\\src\\stockage\\performance.txt");
+        FileWriter fileWriterPerf = new FileWriter(performances);
+        PrintWriter printWriter = new PrintWriter(fileWriterPerf);
+        printWriter.print(0);
+        printWriter.close();
+    }
     public void print() throws IOException {
         String ligneFichier;
         while((ligneFichier = br.readLine()) != null){
@@ -192,7 +208,8 @@ public class manager {
         System.out.println("4- Performances du service");
         System.out.println("5- Ajouter un employé");
         System.out.println("6- Supprimer un employé");
-        System.out.println("7- Quitter le menu");
+        System.out.println("7- Réinitialiser les performances");
+        System.out.println("8- Quitter le menu");
         Scanner scanner = new Scanner(System.in);
         int choixEcran = Integer.parseInt(scanner.next());
         this.page = choixEcran;
@@ -210,7 +227,7 @@ public class manager {
                 print();
                 break;
             case 4:
-                System.out.println("Performances du service");
+                performances();
                 print();
                 break;
             case 5:
@@ -222,6 +239,10 @@ public class manager {
                 print();
                 break;
             case 7:
+                reinitialiserPerf();
+                print();
+                break;
+            case 8:
                 break;
             default:
                 print();

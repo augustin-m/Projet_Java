@@ -14,6 +14,7 @@ public class App {
         System.out.println("1- Ecran prise de commande");
         System.out.println("2- Ecran cuisine ou de bar");
         System.out.println("3- Ecran Monitoring");
+        System.out.println("4- Ecran Ticket de caisse");
         Scanner scanner = new Scanner(System.in);
         int choixEcran = scanner.nextInt();
         Affichage Display1 = new Affichage();
