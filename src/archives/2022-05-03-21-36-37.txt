@@ -1,0 +1,8 @@
+Table numéro : 1
+Fajitas au boeuf 11€
+Bière sans alcool 5€
+Verre d'eau 0€
+Potage à la tomate 8€
+Fajitas au poulet 11€
+Burger 15€
+Total : 50€
