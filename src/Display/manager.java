@@ -23,44 +23,44 @@ public class manager {  // classe qui permet de gérer les différentes actions 
     public manager() throws FileNotFoundException {
     }
 
-    private void composerEquipe(){  // fonction permetant de composer une équipe
+    private void composerEquipe() {  // fonction d'affichage permetant de composer une équipe
         System.out.println("Quel employe voulez vous ajouter ?");
-        for(int i = 0; i< employes.size();i++){
-            System.out.println(i + " " + employes.get(i).nom + " " + employes.get(i).prenom + " " + (employes.get(i).getClass()).toString().substring(17,(employes.get(i).getClass()).toString().length()));
+        for (int i = 0; i < employes.size(); i++) {
+            System.out.println(i + " " + employes.get(i).nom + " " + employes.get(i).prenom + " " + (employes.get(i).getClass()).toString().substring(17, (employes.get(i).getClass()).toString().length()));
         }
         System.out.println("Pour quitter cet affichage entrez : " + employes.size());
         Scanner scanner = new Scanner(System.in);
         int id = scanner.nextInt();
-        if(id >= employes.size()){
-            if (nbBarman >= 1 && nbCuisinier >= 4 && nbServeur >= 2 && nbBarman >= 1){
-
-            }else{
+        if (id >= employes.size()) {
+            if (nbBarman >= 1 && nbCuisinier >= 4 && nbServeur >= 2 && nbBarman >= 1) {
+                // fonction vérifiant la validité de l'équipe (prérequis)
+            } else {
+                // fonction vérifiant que si l'on quitte est que des prérequis ne sont pas satisfaits on informe l'utilisateur et demande confirmation
                 System.out.println("Êtes vous sûr de vouloir quitter ? L'équipe n'est pas compléte.");
-                if(nbBarman < 1){
-                    System.out.println("Il vous manque " + (1-nbBarman) + " Barman");
+                if (nbBarman < 1) {
+                    System.out.println("Il vous manque " + (1 - nbBarman) + " Barman");
                 }
-                if(nbCuisinier < 4){
-                    System.out.println("Il vous manque " + (4-nbCuisinier) + " Cuisinier");
+                if (nbCuisinier < 4) {
+                    System.out.println("Il vous manque " + (4 - nbCuisinier) + " Cuisinier");
                 }
-                if(nbServeur < 2){
-                    System.out.println("Il vous manque " + (2-nbServeur) + " Serveur");
+                if (nbServeur < 2) {
+                    System.out.println("Il vous manque " + (2 - nbServeur) + " Serveur");
                 }
-                if(nbManager < 1){
-                    System.out.println("Il vous manque " + (1-nbManager) + " Manager");
+                if (nbManager < 1) {
+                    System.out.println("Il vous manque " + (1 - nbManager) + " Manager");
                 }
                 System.out.println("Pour quitter quand même, tapez 1. Sinon 0");
-                if(scanner.nextInt() == 0){
+                if (scanner.nextInt() == 0) {
                     composerEquipe();
                 }
             }
-
-        }else if(equipe.indexOf(employes.get(id)) >= 0){
+        } else if (equipe.indexOf(employes.get(id)) >= 0) { // Si l'employé est déjà dans l'équipe
             System.out.println(employes.get(id).prenom + " est déjà dans l'équipe.");
             composerEquipe();
-        }else if(employes.get(id).getWorkday() < 3){
-            String travailEmploye = (employes.get(id).getClass()).toString().substring(17,(employes.get(id).getClass()).toString().length());
+        } else if (employes.get(id).getWorkday() < 3) { // fonction vérifiant que l'employé choisi n'a pas travaillé plus de 3 jours de suite
             equipe.add(employes.get(id));
             employes.get(id).addWorkDay();
+            String travailEmploye = (employes.get(id).getClass()).toString().substring(17, (employes.get(id).getClass()).toString().length());
             switch (travailEmploye) {
                 case "Barman":
                     nbBarman++;
@@ -72,9 +72,16 @@ public class manager {  // classe qui permet de gérer les différentes actions 
                     nbManager++;
             }
             composerEquipe();
-        }else{
-            System.out.println(employes.get(id).prenom + " a déjà travaillé(e) trois soirs d'affilé, merci de choisir quelqu'un d'autre pour votre équipe");
-            composerEquipe();
+        }else {
+            String travailEmploye = (employes.get(id).getClass()).toString().substring(17, (employes.get(id).getClass()).toString().length());
+            if(travailEmploye == "Manager"){ // Si il a travaillé 3 jours de suite ou plus mais que c'est un manager, il a le droit
+                equipe.add(employes.get(id));
+                employes.get(id).addWorkDay();
+                nbManager++;
+            }else {
+                System.out.println(employes.get(id).prenom + " a déjà travaillé(e) trois soirs d'affilé, merci de choisir quelqu'un d'autre pour votre équipe");
+                composerEquipe();
+            }
         }
 
     }
@@ -88,7 +95,7 @@ public class manager {  // classe qui permet de gérer les différentes actions 
         int salaire = Integer.parseInt(scanner.next());
         System.out.println("Puis le métier de l'employé");
         String metier = scanner.next().toUpperCase(Locale.ROOT);
-        if(metier.equals("BARMAN")){
+        if(metier.equals("BARMAN")){    // Selon sa profession, on choisit la class adaptée
             Barman nouveauBarman = new Barman(nom, prenom, salaire);
             employes.add(nouveauBarman);
         }else if(metier.equals("CUISINIER")){

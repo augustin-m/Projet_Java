@@ -96,16 +96,17 @@ public class TicketDeCaisse {    // Classe permetant de faire des opérations su
         while((line = br.readLine()) != null)
         {
             if(compteur == 0){
-                printWriter.println(line);
+                printWriter.println("Table numéro : "+line);
                 System.out.println("Table numéro : "+line);
             } else{
                 System.out.println(line + " " + getPrice(line)+"€");
                 total += getPrice(line);
-                printWriter.print(line);
+                printWriter.println(line + " " + getPrice(line)+"€");
             }
             compteur++;
         }
         System.out.println("Total : "+total+"€");
+        printWriter.println("Total : "+total+"€");
         performances(total);
         fr.close();
         printWriter.close();
