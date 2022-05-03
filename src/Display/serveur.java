@@ -5,20 +5,20 @@ import management.TicketDeCaisse;
 import java.io.IOException;
 import java.util.*;
 
-public class serveur {
+public class serveur {  // classe permetant de gérer l'affichage de l'écran du serveur
     public static List<String> menu = new ArrayList<>(Arrays.asList(
             "Limonade", "Cidre Doux", "Bière sans alcool", "Jus de fruit", "Verre d'eau",
             "Salade", "Salade avec tomates",
             "Potage aux oignons", "Potage à la tomate", "Potage aux champignons",
             "Burger avec salade et tomates", "Burger avec salade", "Burger",
             "Pizza", "Pizza avec champignons", "Pizza avec du chorizo", "Fajitas au poulet", "Fajitas au boeuf"
-    ));
-    public static List<String> commandePlats = new ArrayList<>();
-    public static List<String> commandeBoissons = new ArrayList<>();
-    public static List<String> platsFaits = new ArrayList<>();
-    public static List<String> boissonsFaites = new ArrayList<>();
-    public static Map<Integer, Vector<String>> enregistrementTables  = new HashMap<>();
-    public static void verifierRupture(String nomDuPlat) throws IOException {
+    )); // liste contenant le menu
+    public static List<String> commandePlats = new ArrayList<>();   // liste contenant les plats commandés
+    public static List<String> commandeBoissons = new ArrayList<>();// liste contenant les boissons commandées
+    public static List<String> platsFaits = new ArrayList<>();      // liste contenant les plats faits
+    public static List<String> boissonsFaites = new ArrayList<>();  // liste contenant les boissons faites
+    public static Map<Integer, Vector<String>> enregistrementTables  = new HashMap<>(); // map listant les tables enregistrées
+    public static void verifierRupture(String nomDuPlat) throws IOException {   // fonction qui afficher les produits en rupture de stock dans le menu
         Stocks stocksActuel = new Stocks();
         switch (nomDuPlat){
             case "Limonade":
@@ -113,7 +113,7 @@ public class serveur {
         }
     }
 
-    public static void printMenu() throws IOException {
+    public static void printMenu() throws IOException {     // fonction qui affiche le menu
         for (int i = 0; i < menu.size();i++){
             verifierRupture(menu.get(i));
             System.out.println(i + " : " + menu.get(i));
@@ -128,7 +128,7 @@ public class serveur {
         }
         System.out.println(menu.size() + " : FIN DE COMMANDE");
     }
-    public static void scanCommande(int numTable) throws IOException {
+    public static void scanCommande(int numTable) throws IOException {  // fonction qui scanne la commande effectuée
         System.out.println("Veuillez saisir le numéro du plat ou de la boisson commandé :");
         Scanner scan = new Scanner(System.in);
         int verif = scan.nextInt();

@@ -5,13 +5,13 @@ import java.util.Map;
 import java.io.*;
 import java.util.Vector;
 
-public class Stocks {
+public class Stocks {   // Classe permettant de gérer les stocks
     private final Map<String, Integer> stocks = new HashMap<>() ;
     File directory = new File("");
-    File file = new File(directory.getAbsolutePath()+"\\src\\management\\stock.txt");
+    File file = new File(directory.getAbsolutePath()+"\\src\\management\\stock.txt");   // fichier dans lequel on enregistre les stocks
     public void setStocks(String conso) throws IOException {
         lireStock();
-        switch (conso){
+        switch (conso){     // mise à jour des stocks des ingrédients en fonction du plat saisi
             case "Limonade":
                 stocks.put("Limonade", stocks.get("Limonade")-1);
             case "Cidre doux":
@@ -103,7 +103,7 @@ public class Stocks {
         printWriter.close();
     }
 
-    public void ajouterStock(String ingredient, Integer quantite) throws IOException {
+    public void ajouterStock(String ingredient, Integer quantite) throws IOException {  // fonction qui ajoute du stock à un ingrédient dans le fichier txt
         lireStock();
         stocks.put(ingredient,  stocks.get(ingredient)+quantite);
         FileWriter fileWriter = new FileWriter(file);
@@ -121,11 +121,11 @@ public class Stocks {
         printWriter.close();
     }
 
-    public int lireUnStock(String nomIngredient) throws IOException {
+    public int lireUnStock(String nomIngredient) throws IOException {   // fonction qui renvoie la quantité de l'ingrédient souhaité
         lireStock();
         return stocks.get(nomIngredient);
     }
-    public Vector<Vector> lireStock() throws IOException
+    public Vector<Vector> lireStock() throws IOException    // fonction qui enregistre le contenu du fichier txt dans un vecteur
     {
         Vector<String> v1 = new Vector();
         Vector<Integer> v2 = new Vector();

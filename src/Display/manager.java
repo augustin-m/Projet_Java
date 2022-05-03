@@ -8,22 +8,22 @@ import java.util.Vector;
 import java.util.Locale;
 import java.util.Scanner;
 
-public class manager {
+public class manager {  // classe qui permet de gérer les différentes actions possibles du manager
     File directory = new File("");
-    File file = new File(directory.getAbsolutePath()+"\\src\\management\\employes.txt");
+    File file = new File(directory.getAbsolutePath()+"\\src\\management\\employes.txt");    // lien du fichier txt contenant la liste des employés
     BufferedReader br = new BufferedReader(new FileReader(file));
     public int page;
-    private Vector<Employe> employes = new Vector<Employe>();
-    private Vector<Employe> equipe = new Vector<Employe>();
-    private int nbBarman = 0;
-    private int nbServeur = 0;
-    private int nbCuisinier = 0;
-    private int nbManager = 0;
+    private Vector<Employe> employes = new Vector<Employe>();   // vecteur contenant l'ensemble des employés
+    private Vector<Employe> equipe = new Vector<Employe>(); // vecteur contenant l'équipe de la journée
+    private int nbBarman = 0;   // nombre de barmans
+    private int nbServeur = 0;  // nombre de serveurs
+    private int nbCuisinier = 0;// nombre de cuisiniers
+    private int nbManager = 0;  // nombre de managers
 
     public manager() throws FileNotFoundException {
     }
 
-    private void composerEquipe(){
+    private void composerEquipe(){  // fonction permetant de composer une équipe
         System.out.println("Quel employe voulez vous ajouter ?");
         for(int i = 0; i< employes.size();i++){
             System.out.println(i + " " + employes.get(i).nom + " " + employes.get(i).prenom + " " + (employes.get(i).getClass()).toString().substring(17,(employes.get(i).getClass()).toString().length()));
@@ -78,7 +78,7 @@ public class manager {
         }
 
     }
-    private void ajoutEmploye(){
+    private void ajoutEmploye(){    // fonction permetant d'ajouter un employé et ses informations personnelles
         Scanner scanner = new Scanner(System.in);
         System.out.println("Pour commencer renseignez le nom de l'employé");
         String nom = scanner.next();
@@ -103,7 +103,7 @@ public class manager {
         }
     }
 
-    private void supprimeEmploye(){
+    private void supprimeEmploye(){     // fonction permetant de supprimer un employé
         System.out.println("Quel employe voulez vous exclure ?");
         for(int i = 0; i< employes.size();i++){
             System.out.println(i + " " + employes.get(i).nom + " " + employes.get(i).prenom + " " + (employes.get(i).getClass()).toString().substring(17,(employes.get(i).getClass()).toString().length()));
@@ -116,12 +116,12 @@ public class manager {
         }
     }
 
-    private String[] analyseText(String ligne){
+    private String[] analyseText(String ligne){     // fonction permetant de renvoyer un tableau de String avec tous les mots de la ligne souhaitée
         String[] stringSepare = ligne.split(" ");
         return stringSepare;
     }
 
-    private void imprimmerCourses() throws IOException {
+    private void imprimmerCourses() throws IOException {    // fonction permetant d'imprimer la liste de courses (si article < 20)
         Vector <String> nomProduits = new Vector();
         Vector <Integer> nombreRequis =  new Vector();
         Stocks stockActuel = new Stocks();
@@ -142,7 +142,7 @@ public class manager {
         }
     }
 
-    public void remplirLesStocks() throws IOException {
+    public void remplirLesStocks() throws IOException {     // fonction permetant d'ajouter du stock une fois les courses effectuées
         System.out.println("Qu'avez vous acheté ?");
         Stocks stockActuel = new Stocks();
         Vector<Vector> stock = stockActuel.lireStock();
@@ -160,7 +160,7 @@ public class manager {
         }
     }
 
-    public void performances() throws IOException {
+    public void performances() throws IOException {     // fonction permetant d'afficher les performances quotidiennes
         File performances = new File(directory.getAbsolutePath()+"\\src\\stockage\\performance.txt");
         FileReader fr = new FileReader(performances);
         BufferedReader brPerf = new BufferedReader(fr);
@@ -168,14 +168,14 @@ public class manager {
         fr.close();
     }
 
-    public void reinitialiserPerf() throws IOException {
+    public void reinitialiserPerf() throws IOException {    // fonction permetant de remettre à 0 les performances à chaque fin de service
         File performances = new File(directory.getAbsolutePath()+"\\src\\stockage\\performance.txt");
         FileWriter fileWriterPerf = new FileWriter(performances);
         PrintWriter printWriter = new PrintWriter(fileWriterPerf);
         printWriter.print(0);
         printWriter.close();
     }
-    public void print() throws IOException {
+    public void print() throws IOException {    // fonction permetant d'afficher l'écran manager
         String ligneFichier;
         while((ligneFichier = br.readLine()) != null){
             String[] infoEmploye = analyseText(ligneFichier);

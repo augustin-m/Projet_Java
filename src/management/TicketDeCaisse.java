@@ -6,10 +6,10 @@ import java.text.SimpleDateFormat;
 import java.util.Map;
 import java.util.Vector;
 
-public class TicketDeCaisse {
+public class TicketDeCaisse {    // Classe permetant de faire des opérations sur le ticket de caisse
     Integer numeroTable;
     File directory = new File("");
-    public void sauvgarderTicket (Integer numeroTable, Vector<String> informations) throws IOException {
+    public void sauvgarderTicket (Integer numeroTable, Vector<String> informations) throws IOException {    // fonction qui sauvegarde le ticket une fois la commande prise
         File file = new File(directory.getAbsolutePath()+"\\src\\stockage\\"+numeroTable+".txt");
         FileWriter ticket = new FileWriter(file);
         PrintWriter printWriter = new PrintWriter(ticket);
@@ -25,7 +25,7 @@ public class TicketDeCaisse {
         printWriter.close();
     }
 
-    public int getPrice(String aliment){
+    public int getPrice(String aliment){    // fonction qui renvoie le prix d'un plat ou d'une boisson souhaité(e)
         int prix = 0;
         switch (aliment){
             case "Limonade":
@@ -70,7 +70,7 @@ public class TicketDeCaisse {
         return prix;
     }
 
-    public void performances(Integer prix) throws IOException {
+    public void performances(Integer prix) throws IOException {     // fonction qui imprime les performances quotidiennes du restaurant
         File performances = new File(directory.getAbsolutePath()+"\\src\\stockage\\performance.txt");
         FileReader fr = new FileReader(performances);
         BufferedReader brPerf = new BufferedReader(fr);
@@ -81,7 +81,7 @@ public class TicketDeCaisse {
         printWriter.print(perfActuel+prix);
         printWriter.close();
     }
-    public void imprimerTicket (Integer numeroTable) throws IOException {
+    public void imprimerTicket (Integer numeroTable) throws IOException {   // fonction qui imprime le ticket de caisse
         File fileDelete = new File(directory.getAbsolutePath()+"\\src\\stockage\\"+numeroTable+".txt");
         final SimpleDateFormat sdf3 = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
